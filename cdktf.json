@@ -3,7 +3,11 @@
   "app": "npx ts-node main.ts",
   "projectId": "a76ed997-22aa-496a-b2a9-cbe26e89bfd4",
   "sendCrashReports": "true",
-  "terraformProviders": [],
+  "terraformProviders": [
+    "hashicorp/null@~> 3.1",
+    "hashicorp/helm@~> 3.0.2",
+    "hashicorp/time@~> 0.9"
+  ],
   "terraformModules": [],
   "context": {
 
