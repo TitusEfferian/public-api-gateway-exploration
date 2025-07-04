@@ -76,14 +76,13 @@ export class ApiSixWithoutHelmet extends Construct {
       },
     });
 
-    // --- APISIX Deployment ---
     this.deployment = new Deployment(this, "apisix-deployment", {
       metadata: {
         name: appName,
         labels: appLabels,
       },
       spec: {
-        replicas: "1", // Start with 1 for simplicity
+        replicas: "1",
         selector: {
           matchLabels: appLabels,
         },
@@ -109,7 +108,7 @@ export class ApiSixWithoutHelmet extends Construct {
             container: [
               {
                 name: appName,
-                image: "apache/apisix:3.10.0-debian", // Using a specific version is recommended
+                image: "apache/apisix:3.10.0-debian",
                 port: [
                   {
                     name: "http",
@@ -151,7 +150,6 @@ export class ApiSixWithoutHelmet extends Construct {
       },
     });
 
-    // --- APISIX Service ---
     this.service = new Service(this, "apisix-service", {
       metadata: {
         name: `${appName}-gateway`,
